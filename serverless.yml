@@ -32,7 +32,7 @@ provider:
   environment:
     NOTES_TABLE: ${self:service}-${opt:stage, self:provider.stage}
   iamRoleStatements:
-    - Effect: Allow
+    - Effect: "Allow"
       Action:
         - dynamodb:Query
         - dynamodb.PutItem
