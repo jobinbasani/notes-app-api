@@ -35,8 +35,8 @@ provider:
     - Effect: "Allow"
       Action:
         - dynamodb:Query
-        - dynamodb.PutItem
-        - dynamodb.DeleteItem
+        - dynamodb:PutItem
+        - dynamodb:DeleteItem
       Resource:
         Fn::GetAtt:
           - NotesTable
