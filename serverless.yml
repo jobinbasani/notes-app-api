@@ -37,10 +37,7 @@ provider:
         - dynamodb:Query
         - dynamodb:PutItem
         - dynamodb:DeleteItem
-      Resource:
-        Fn::GetAtt:
-          - NotesTable
-          - Arn
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.NOTES_TABLE}"
 
 functions:
   add-note:
