@@ -20,7 +20,12 @@ exports.handler = async (event) => {
             }
         }
         let data = await cognitoIdentity.getId(params).promise();
-        params.IdentityId = data.IdentityId;
+        params = {
+            IdentityId: data.IdentityId,
+            Logins:{
+                'accounts.google.com': id_token
+            }
+        }
         data = await cognitoIdentity.getCredentialsForIdentity(params).promise();
         let decoded = jwtDecode(id_token);
         data.user_name = decoded.name;
